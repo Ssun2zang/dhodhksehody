@@ -1,0 +1,284 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  min-width: 1060px;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  font-family: Roboto, Avenir, sans-serif;
+  /* 해당 폰트가 안깔려있으면 깨질 수도 있어서 web font를 사용해보려함 */
+}
+a {
+  text-decoration: none;
+  /* 글자 밑줄 삭제 */
+}
+
+/* header */
+.header {
+  background: #0b4b33;
+  height: 72px;
+  padding: 15px 0 4px;
+  /* top l/r bot */
+}
+.container,
+.container-float {
+  max-width: 1400px;
+  margin: 0 auto 0 auto;
+  /* margin: 0 auto와 같음 (2개 적을땐 위아래,양옆/ 1개는 다)) */
+  /* (top r bot l) 가운데 정렬을 위해 양 옆에 auto를 씀*/
+  padding: 0 20px;
+  /* 여백 */
+  position: relative;
+  /* ? */
+}
+/*           10px
+     -------------------
+     |                 |
+     |                 |
+40px |                 | 30px
+     |                 |
+     |                 |
+     ------------------- 
+             30px
+*/
+.logo {
+  padding-left: inherit;
+  /* absolute가 있으면 container의 padding이 안 돼서 inherit을 해줌 */
+  margin: 0;
+  /* margin??? */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 로고 위치 고정 */
+}
+.nav {
+  text-align: right;
+  /* 글자 오른쪽 정렬 */
+}
+.list-item {
+  display: inline-block;
+  /* 메뉴가 오른쪽으로 적히게 inline */
+  font-weight: 700;
+  /* 글자 굵기 두껍게 */
+  font-size: 1.3rem;
+  /* 폰트사이즈를 별도로 지정해줌 */
+  text-transform: uppercase;
+  /* 대문자로 변경 */
+}
+.list {
+  margin: 0;
+  font-size: 0;
+  /* li간의 여백이 없도록 폰트사이즈를 0으로 하는 팁 */
+}
+.list-item > a {
+  /* list-item 바로 아래 있는 a에 해당한다는 뜻 */
+  color: white;
+  display: block;
+  padding: 10px;
+  /* 누르는 버튼 크기가 약간 커져서 쓰기 좋음 */
+}
+.list-item > a:hover {
+  color: #c9f0dd;
+  /* a위에 마우스를 올리면 색이 변함 */
+}
+
+/* main */
+
+.hero-section {
+  text-align: center;
+  padding: 50px 0;
+  border-bottom: 1px solid #cfe3dc;
+  /* 두께 / 모양 / 색상 */
+}
+.intro-desc {
+  width: 700px;
+  margin: 40px auto 50px;
+  font-size: 3.6rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.cta {
+  color: white;
+  width: 300px;
+  font-weight: 400;
+  margin: 0 auto 60px;
+  display: block;
+  padding: 20px 50px;
+  border-radius: 8px;
+  background: #44b78b;
+}
+.cta:hover {
+  background: #51be95;
+}
+.main-content {
+  float: left;
+  width: 70%;
+}
+.side-content {
+  float: right;
+  width: 30%;
+  margin: 0;
+  padding: 0 0 30px 20px;
+  border-left: 1px solid #cfe3dc;
+}
+.container-float::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.h3 {
+  margin: 0 0 10px;
+}
+.mailing-desc {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-weight: 300;
+}
+.mailing:first-child {
+  margin-right: 3%;
+}
+.main-title {
+  font-weight: 400;
+  margin: 40px 0 20px;
+  font-size: 3.2rem;
+  letter-spacing: -1px;
+  /* 자간 */
+}
+.mailing {
+  float: left;
+  width: 47%;
+}
+.main-desc {
+  margin: 0 0 20px;
+}
+.mailing-title > a,
+.mailing-desc > a {
+  color: #20aa76;
+}
+.mailing-desc > a:hover,
+.mailing-title > a:hover,
+.news-title > a:hover,
+.infos > a:hover,
+.community-title > a:hover {
+  color: #25c488;
+}
+.mailing-form {
+  margin: 10px 0 30px;
+  position: relative;
+}
+.mailing-form > label {
+  /* display: none; */
+  /* visibility: hidden; 위와 같음 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  /* 웹 접근성을 높게 하는 코드 */
+}
+input[type="email"] {
+  width: 100%;
+  border: 1px solid #cfe3dc;
+  border-radius: 4px;
+  /* 모서리 둥글게 */
+  height: 5rem;
+  padding: 6px 80px 8px 10px;
+  /* input에 패딩을 넣어 submit까지 넘치지 않도록 함 */
+}
+.mailing-form-btn {
+  position: absolute;
+  top: 30%;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  /* 배경색 투명 */
+  color: #44b78b;
+  cursor: pointer;
+  /* 위가있으면 커서 올릴 때 색이 바뀜 */
+}
+.side-cta {
+  width: 330px;
+  padding: 16px 24px;
+  margin: 40px auto 0;
+}
+.more {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #20aa76;
+}
+.infos-title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  border-bottom: 1px solid #cfe3dc;
+  margin: 3.5rem 0 0 0;
+  padding-bottom: 1rem;
+}
+.news-article {
+  padding: 20px 0;
+}
+.news-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.news-title > a,
+.community-title > a {
+  color: #20aa76;
+}
+.news-desc {
+  font-size: 1.5rem;
+}
+.news-meta {
+  margin: 0;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #859d94;
+}
+.news-meta > span {
+  font-weight: 700;
+}
+.list-communities {
+  padding: 20px 0;
+  margin: 0;
+}
+.community-desc {
+  margin: 10px 0 0 0;
+  font-size: 1.4rem;
+  color: #859d94;
+}
+.community-title {
+  font-size: 1.4rem;
+}
+.community-title:nth-child(n + 2) {
+  /* 2번째 이상 요소에만 적용됨 */
+  margin-top: 14px;
+}
+.side-cta em {
+  font-style: normal;
+  color: #c9f0dd;
+}
+.more::after {
+  content: ">";
+  /* 가상 글자 넣기 */
+}
+
+/* footer */
+.footer {
+  background: #0b4b33;
+  clear: both;
+  /* 위의 float 박스 때문에 가려지기 때문에 아래 footer에 해줌(독립적으로 시작함) */
+}
+.container-side-cta {
+  text-align: center;
+}
